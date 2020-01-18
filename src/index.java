@@ -30,6 +30,7 @@ public class index extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter out = response.getWriter();
 		out.println("indexServlet");
+		out.println(getServletContext().getRealPath("index.jsp"));
 //	    request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
 
