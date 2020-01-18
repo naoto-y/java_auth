@@ -10,6 +10,7 @@
     <h1>ログインフォーム</h1>
     <form action="index" method="post">
     	<input type="text" name="id">
+    	<button type="submit">送信</button>
     </form>
 </body>
 </html>
