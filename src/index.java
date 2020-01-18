@@ -28,17 +28,14 @@ public class index extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		PrintWriter out = response.getWriter();
-		out.println("indexServlet");
-		out.println(getServletContext().getRealPath("index.jsp"));
-//	    request.getRequestDispatcher("index.jsp").forward(request, response);
+	    request.getRequestDispatcher("jsp/index.jsp").forward(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("login.jsp").forward(request, response);
+		request.getRequestDispatcher("jsp/login.jsp").forward(request, response);
 	}
 
 }
