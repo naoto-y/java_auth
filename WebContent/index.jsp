@@ -7,6 +7,9 @@
 <title>Java Auth</title>
 </head>
 <body>
-    <h1>Hello, Java!</h1>
+    <h1>ログインフォーム</h1>
+    <form action="index" method="post">
+    	<input type="text" name="id">
+    </form>
 </body>
 </html>
