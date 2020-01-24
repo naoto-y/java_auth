@@ -14,5 +14,6 @@
         <p>一言コメント:<input name="flavor"></p>
         <button>登録</button>
     </form>
+    <p><a href="./">ログインページ</a></p>
 </body>
 </html>

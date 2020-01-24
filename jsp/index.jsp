@@ -13,5 +13,6 @@
     	<p>パスワード:<input type="password" name="pass"></p>
     	<button type="submit">送信</button>
     </form>
+    <p><a href="./register">登録ページ</a></p>
 </body>
 </html>

@@ -9,5 +9,6 @@
 <body>
     <h1>登録完了</h1>
     <p>ユーザーID:<%= request.getAttribute("userId") %></p>
+    <p><a href="./">ログインページ</a></p>
 </body>
 </html>
