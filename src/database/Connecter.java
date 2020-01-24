@@ -11,7 +11,7 @@ public class Connecter {
         String DB_HOST = null;
         String DB_DRIVER = null;
 
-        DB_HOST = "jdbc:mysql://java-sys.cnab0knjunjp.ap-northeast-1.rds.amazonaom";
+        DB_HOST = "jdbc:mysql://java-sys.cnab0knjunjp.ap-northeast-1.rds.amazonaws.com";
         DB_DRIVER = "com.mysql.jdbc.Driver";
 
         try {
@@ -26,11 +26,11 @@ public class Connecter {
                 "admin",
                 "jPrC3QutqSdb"
             );
+            conn.setAutoCommit(false);
         } catch(SQLException e) {
             e.printStackTrace();
         }
 
         return conn;
     }
-
 }
