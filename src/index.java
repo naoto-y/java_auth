@@ -37,7 +37,19 @@ public class index extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	    UserDAO userDAO = new UserDAO();
-	    UserDTO userData = userDAO.getUserDataById(1);
+	    String name = request.getParameter("name");
+	    String pass = request.getParameter("pass");
+
+	    int user_id = userDAO.getUserIdByNameAndPass(name, pass);
+
+	    if(user_id <= 0) {
+	        request.getRequestDispatcher("jsp/error.jsp").forward(request, response);
+	    }
+
+	    UserDTO userData = userDAO.getUserDataById(user_id);
+	    request.setAttribute("userId", userData.getId());
+	    request.setAttribute("name", userData.getName());
+	    request.setAttribute("flavor", userData.getFlavor());
 		request.getRequestDispatcher("jsp/login.jsp").forward(request, response);
 	}
 

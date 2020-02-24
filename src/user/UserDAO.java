@@ -14,9 +14,19 @@ public class UserDAO {
         UserDTO userDTO = new UserDTO();
 
         try(Connection conn = Connecter.DBConnection()){
-            Statement stmt = conn.createStatement();
             String sql = "SELECT * FROM user_data WHERE id = ?";
-            ResultSet rset = stmt.executeQuery(sql);
+
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, id);
+
+            ResultSet rset = ps.executeQuery();
+            rset.next();
+            userDTO.setId(rset.getInt("id"));
+            userDTO.setName(rset.getString("name"));
+            userDTO.setFlavor(rset.getString("flavor"));
+
+            ps.close();
+            conn.close();
         } catch(SQLException e) {
             e.printStackTrace();
         }
@@ -27,7 +37,6 @@ public class UserDAO {
         int userId = 0;
 
         try(Connection conn = Connecter.DBConnection()){
-            Statement stmt = conn.createStatement();
             String sql = "SELECT id FROM user_data WHERE name = ? AND password = ?";
 
             PreparedStatement ps = conn.prepareStatement(sql);
