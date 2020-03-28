@@ -8,7 +8,8 @@ import javax.ejb.Singleton;
 
 import org.bson.Document;
 
-import com.mongodb.MongoClient;
+import com.mongodb.client.MongoClient;
+import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 
@@ -25,7 +26,7 @@ public class MongoDB {
     public void insert(Integer id, String session) {;
         String mongoIpAddress = "127.0.0.1";
         Integer mongoPort = 11000;
-        mongoClient = new MongoClient(mongoIpAddress, mongoPort);
+        mongoClient = MongoClients.create("mongodb://localhost:27017");
         MongoDatabase database = mongoClient.getDatabase("auth");
         MongoCollection<Document> session_key = database.getCollection("session_key");
         Document value = new Document();
