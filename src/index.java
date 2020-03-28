@@ -7,7 +7,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import database.MongoDB;
 import user.UserDAO;
 import user.UserDTO;
 
@@ -45,6 +47,10 @@ public class index extends HttpServlet {
 	    if(user_id <= 0) {
 	        request.getRequestDispatcher("jsp/error.jsp").forward(request, response);
 	    }
+
+	    HttpSession session = request.getSession(true);
+	    MongoDB mongodb = new MongoDB();
+	    mongodb.insert(user_id, session.getId());
 
 	    UserDTO userData = userDAO.getUserDataById(user_id);
 	    request.setAttribute("userId", userData.getId());
